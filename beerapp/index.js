@@ -10,6 +10,7 @@ app.use(parser.urlencoded({extended:true}))
 app.use("/users", UserController)
 app.use("/posts", PostController)
 app.get("/",(req,res)=> {
-    res.status(200).send("hello")
+    res.status(200).send("connected")
 })
+
 app.listen (3000, () =>{console.log("we connected to port 3000")})
