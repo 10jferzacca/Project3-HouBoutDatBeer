@@ -10,14 +10,20 @@ router.post("/", (req,res) => {
     })
 })
 
-router.get("/all", (req,res) => {
-    Post.find({}).then(posts => {
-        res.status(200).send({success: true, posts:posts})
-    }).catch(err => {
-        console.log("error", err)
-    })
+// router.get("/", (req,res) => {
+//     Post.find({}).then(posts => {
+//         res.status(200).send({success: true, posts:posts})
+//     }).catch(err => {
+//         console.log("error", err)
+//     })
+// })
+
+router.get("/", (req, res) => {
+    Post.find({}).then(posts => res.json(posts));
 })
+
 module.exports = router
+
 // router.put
 
 // router.delete

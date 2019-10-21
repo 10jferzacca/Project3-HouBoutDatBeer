@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Bob",
+        "email":"Bob@gmail.com",
+        "username":"bibbitybob"
+    },
+
+    {
+        "name": "Kilwin",
+        "email":"kilwin@gmail.com",
+        "username":"kkitkat"
+    },
+    {
+        "name": "Sharon",
+        "email":"Sharon@gmail.com",
+        "username":"sheepshark"
+    },
+    {
+        "name": "Wayne",
+        "email":"dead@gmail.com",
+        "username":"lilbat"
+    },
+    {
+        "name": "Wayne",
+        "email":"dead@gmail.com",
+        "username":"lilbat"
+    }
+    
+]
