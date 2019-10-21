@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import "./App.css"
+import { Link } from "react-router-dom"
 class Beers extends Component {
     constructor(props) {
         super(props);
@@ -41,7 +42,7 @@ class Beers extends Component {
                               
                         {/* <p>{beer.description}</p> */}
                         <p>Recommended Food Pairing: {beer.food_pairing[0]}</p>
-                        <p><button>Read More</button>  </p>  
+                        <Link to={"/showbeer/" + beer.name}><button>Read More</button> </Link> 
                         </div>
                     )
                 })}
