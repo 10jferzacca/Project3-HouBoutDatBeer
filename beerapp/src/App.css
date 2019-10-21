@@ -26,3 +26,28 @@ img {
   width: auto;
   height: 120px;
 }
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ background-color: #d6c3bc;
+ 
+}
+
+.box {
+  width: 32%;
+  margin-bottom: 2%;
+  position: relative;
+  /* background-color: grey */
+  /* background-image: linear-gradient(to right, #6A6C6E, white); */
+  color: #003366;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px auto;
+
+} 
+
+.box:hover{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
