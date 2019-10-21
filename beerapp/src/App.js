@@ -4,15 +4,20 @@ import {Link, Route, Switch} from "react-router-dom"
 import './App.css';
 import Home from "./Home"
 import Beers from "./Beers"
+
+import axios from "axios"
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       beers: {}
+ 
     }
   }
+  
   render () {
     return (
+      <div>
       <div>
         <nav>
         <Link to="/">
@@ -21,7 +26,9 @@ class App extends Component {
         <Link to="/beers">
           <h2>View Beers</h2>
         </Link>
+        
         </nav>
+        </div>
         <main>
           <Switch>
           <Route exact path="/"
@@ -29,9 +36,9 @@ class App extends Component {
           <Route path="/beers" component={Beers}/>
           {/* <Route path="/show"
           component={ShowBeer}/> */}
-          </Switch>
+        </Switch>
         </main>
-      </div>
+        </div>
     )
   }
     
