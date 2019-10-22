@@ -12,6 +12,13 @@ router.post("/", (req,res) => {
     })
 })
 
+// router.get("/:id", (req,res) => {
+//     User.findOne({_id:req.params.id}).then(user => {
+//         res.status(200).send({success: true, user:user})
+//     }).catch(err => {
+//         console.log("error", err)
+//     })
+// })
 
 router.get("/", (req, res) => {
     User.find({}).then(users => res.json(users));
@@ -33,4 +40,4 @@ router.delete("/:id", (req,res) => {
     })
 })
 
-module.exports = router      
+module.exports = router 

@@ -1,3 +1,4 @@
+  
 const mongoose = require("../connection")
 const Schema = mongoose.Schema
 
@@ -6,6 +7,8 @@ const PostSchema = new Schema({
     caption:String,
     picture:String,
     brewery:String,
+    longitude: String,
+    latitude: String,
     category:String,
     user:{type: Schema.Types.ObjectId, ref: "User"}
 })
@@ -15,4 +18,3 @@ const PostSchema = new Schema({
 
 const Post = mongoose.model("Post",PostSchema)
 module.exports = Post
-
