@@ -32,7 +32,9 @@ class App extends Component {
           <h2>Show Users</h2>
         </Link>
         <Link to="/show/posts">
-          <h2>Show Posts</h2>
+          <h2>
+            BeerPals
+          </h2>
         </Link>
         <Link to="/newpost">
           <h2>New Post</h2>

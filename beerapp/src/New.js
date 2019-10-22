@@ -20,12 +20,14 @@ class New extends Component {
         })
     }
     handleSubmit = event => {
+       if (this.state.category === "") {
+           alert("not correct")
+       } else {
         event.preventDefault();
         const { title, caption, picture, brewery, category} = this.state;
         const post = {
             title, caption, picture, brewery, category
         }
-        
         axios
         .post('http://localhost:3000/posts/', post)
         .then(() => console.log('post created', post))
@@ -36,6 +38,10 @@ class New extends Component {
             console.error(err)
         })
     }
+
+    }
+
+
     render() { 
         if (this.state.toDashboard === true) {
             return <Redirect to='/show/posts' />
@@ -82,7 +88,8 @@ class New extends Component {
                         <div>
                             <select 
                                 name = "category" onChange={this.handleInputChange}>
-                        <option value="Lager" >Lager </option>
+                        <option value="Select">Select</option>
+                        <option value="Lager">Lager</option>
                         <option value="Port">Port</option>
                         <option value="IPA">IPA</option>
                         <option value="Belgium">Belgium</option>
