@@ -41,6 +41,7 @@ class Posts extends Component {
           <img src={post.picture} />
           <p>{post.caption}</p>
           <p>Brewery: {post.brewery}</p>
+          <p>Catagory: {post.category}</p>
           <button onClick={() => this.handleDelete(post._id)}>Delete</button>
           </div>
         </div>
