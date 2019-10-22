@@ -2,6 +2,8 @@ const express = require("express")
 const router = express.Router()
 const Post = require("../db/models/Post")
 
+
+
 router.post("/", (req,res) => {
     Post.create(req.body).then(post => {
         res.status(200).send({success: true, post:post})
