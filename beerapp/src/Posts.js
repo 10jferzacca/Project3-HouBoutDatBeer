@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Posts extends Component {
   constructor(props) {
     super(props);
@@ -18,15 +19,29 @@ class Posts extends Component {
       .catch(error => console.log(error));
   }
 
+  handleDelete = (post) => { 
+      fetch(`http://localhost:3000/posts/${post}`, {
+          headers: {
+              "Content-Type": "application/json"
+          },
+          method: 'DELETE'
+      }).then(res=> {
+          res.json()
+      }).then(json => {
+          this.setState({posts: this.state.posts.filter(item => {
+              return item._id !== post})})})
+    }
+  
   render() {
-    return this.state.posts.map(post => {
+    return this.state.posts.map((post, index) => {
       return (
         <div className='post'>
-            <div className="inner">
+            <div className="inner" key={index}>
           <h2 className="beerTitle">{post.title}</h2>
           <img src={post.picture} />
           <p>{post.caption}</p>
           <p>Brewery: {post.brewery}</p>
+          <button onClick={() => this.handleDelete(post._id)}>Delete</button>
           </div>
         </div>
       );
