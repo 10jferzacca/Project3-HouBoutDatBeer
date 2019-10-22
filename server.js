@@ -15,7 +15,7 @@ app.use("/users", UserController)
 app.use("/posts", PostController)
 app.get("/",(req,res)=> {
     res.status(200).send("connected")
-})
+});
 
 
 
