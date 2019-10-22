@@ -7,8 +7,7 @@ const PostController = require("./controller/PostController")
 const cors = require("cors")
 
 
-// app.post("/", (req,res)=> {
-// });
+
 app.use(cors());
 app.use(parser.json());
 app.use(parser.urlencoded({extended:true}));
