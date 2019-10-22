@@ -8,6 +8,7 @@ import User from "./User"
 import Showbeer from "./Showbeer"
 import Posts from "./Posts"
 import New from "./New"
+import Showpost from "./Showpost"
 class App extends Component {
   constructor(props) {
     super(props)
@@ -49,6 +50,7 @@ class App extends Component {
          <Route path="/show/users" component={User}/>
          <Route exact path="/show/posts" component={Posts}/>
          <Route exact path="/newpost" component={New}/>
+         <Route path="/showpost/:id" render={routerProps => <Showpost {...routerProps}/>}/>
           {/* <Route path="/show"
           component={ShowBeer}/> */}
         </Switch>

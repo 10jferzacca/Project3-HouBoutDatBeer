@@ -1,16 +1,18 @@
 import React, { Component } from "react"
+
 import axios from "axios"
-import { Redirect } from "react-router-dom"
-class New extends Component {
+class Showpost extends Component {
     constructor(props) {
-        super(props);
-        this.state = { 
+        
+        super(props)
+        this.state = {
             title: '',
             caption:"",
             picture:"",
             brewery:"",
             category:""
-         }
+        }
+    
     }
     handleInputChange = event => {
         this.setState({
@@ -24,15 +26,28 @@ class New extends Component {
             title, caption, picture, brewery, category
         }
         axios
-        .post('http://localhost:3000/posts/', post)
-        .then(() => console.log('post created', post))
+        .put('http://localhost:3000/edit/', this.props.match.params.id)
+        .then(() => console.log('post updated', post))
         .catch(err => {
             console.error(err)
         })
       
     }
-    render() { 
-        return ( 
+componentDidMount() {
+    fetch('http://localhost:3000/edit/' + this.props.match.params.id, {
+        method: 'PUT'
+    })
+    .then(response => {
+        return response.json()
+    }).then(res => {
+        this.setState({
+            beer: res})
+    
+}
+    )
+}
+    render()  {
+        return (
             <div>
                 <br />
                 <div>
@@ -80,13 +95,17 @@ class New extends Component {
                         </div>
                         <br />
                         <div>
-                            <button type="submit" >Create</button>
+                            <button type="submit">Update</button>
                         </div>
                     </form>
                 </div>
-            </div>
-         );
-    }
-}
+        </div>
  
-export default New;
+        )
+    
+                
+            }
+        }
+      
+        
+export default Showpost;
