@@ -10,6 +10,9 @@ const PostSchema = new Schema({
     user:{type: Schema.Types.ObjectId, ref: "User"}
 })
 
+// return all posts for a certain user
+//posts.find({user:req.params.user_id})
+
 const Post = mongoose.model("Post",PostSchema)
 module.exports = Post
 
