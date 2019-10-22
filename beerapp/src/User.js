@@ -1,19 +1,37 @@
 import React, { Component } from "react"
 
 class User extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            users: []
+        }
+    }
+    componentDidMount() {
+       fetch('http://localhost:3000/users')
+        .then(response => {
+            
+           return response.json();
+            
+        }).then(res => {
+            console.log(res)
+            this.setState({users: res})
+        }).catch(error => console.log(error))
+    }
+
    render() {
+      
        return(
-           <div>
-               <form method="post" action="/register">
-                   Email Address: <br/>
-                   <input type="text" name="email"/><br/>
-                    Username:<br/>
-                    <input type="text" name="username"/><br/>
-                    Password:<br/>
-                    <input type="password" name="password"/><br/>
-                    <input type="submit" value="Register"/>
-                </form>
-             </div>
+                this.state.users.map(user => {
+                    return( 
+                        <div className="userProfile">
+                            <h2>Name:{user.name}</h2>
+                            <p>username: {user.username}</p>
+                            <p>Email: {user.email}</p>
+                            </div>
+                    )
+                })
+           
               
        )
    }
