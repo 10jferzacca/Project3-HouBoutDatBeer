@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Post = require("../db/models/Post")
 
+
 router.post("/", (req,res) => {
     Post.create(req.body).then(post => {
         res.status(200).send({success: true, post:post})
@@ -18,11 +19,31 @@ router.post("/", (req,res) => {
 //     })
 // })
 
+
+
+//how to link user to their posts
+
+//create route to Post page
+router.get("/:user_id", (req, res)=>{
+
+})
+
+
+
+//use Post page component to render the page
+
+// axios call for Post and have it saved to a variable (array of posts)
+
+//iterate through and display the elements (post elements(data))
+
+
+
+
 router.get("/", (req, res) => {
     Post.find({}).then(posts => res.json(posts));
 })
 
-module.exports = router
+
 
 router.put("/", (req,res) => {
     Post.findOneAndUpdate({
@@ -50,4 +71,4 @@ router.delete("/:id", (req, res) => {
 })
 
 
-
+module.exports = router

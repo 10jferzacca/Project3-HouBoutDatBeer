@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require("../db/models/User")
 
 
+
 router.post("/", (req,res) => {
     User.create(req.body).then(user => {
         res.send("/")
@@ -10,19 +11,6 @@ router.post("/", (req,res) => {
         console.log("error", err)
     })
 })
-
-//how to link user to their posts
-
-//create route to Post page
-router.get("/:user_id",(req,res)=>{
-    
-})
-//use Post page component to render the page
-
-// axios call for Post and have it saved to a variable (array of posts)
-
-//iterate through and display the elements (post elements(data))
-
 
 
 router.get("/", (req, res) => {
