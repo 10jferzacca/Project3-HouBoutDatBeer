@@ -14,7 +14,9 @@ router.post("/", (req,res) => {
 //how to link user to their posts
 
 //create route to Post page
-
+router.get("/:user_id",(req,res)=>{
+    
+})
 //use Post page component to render the page
 
 // axios call for Post and have it saved to a variable (array of posts)
