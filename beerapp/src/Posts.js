@@ -21,11 +21,13 @@ class Posts extends Component {
   render() {
     return this.state.posts.map(post => {
       return (
-        <div className='userProfile'>
-          <h2>{post.title}</h2>
+        <div className='post'>
+            <div className="inner">
+          <h2 className="beerTitle">{post.title}</h2>
           <img src={post.picture} />
           <p>{post.caption}</p>
           <p>Brewery: {post.brewery}</p>
+          </div>
         </div>
       );
     });

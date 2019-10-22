@@ -1,9 +1,29 @@
 [
     {
         "title":"Pilsen Lager",
-    "caption":"THIS IS A DANK BEER",
-    "picture":"https://images.punkapi.com/v2/4.png",
-    "brewery":"Pilsen Brewery",
-    "category":"Yum"
+        "caption":"THIS IS A DANK BEER",
+        "picture":"https://images.punkapi.com/v2/4.png",
+        "brewery":"Pilsen Brewery",
+        "longitude": "0",
+        "latitude": "0",
+        "category":"Yum"
+    },
+    {
+        "title":"Buzz",
+        "caption":"A light, crisp, and bitter IPA--only brewed once!",
+        "picture":"https://images.punkapi.com/v2/keg.png",
+        "brewery":"Avondale Brewing Co",
+        "longitude":"-86.774322",
+        "latitude": "33.524521",
+        "category": "Yum"
+    },
+    {
+        "title":"Avery Brown Dredge",
+        "caption":"An Imperial Pilsner in collaboration with beer writers",
+        "picture":"https://images.punkapi.com/v2/5.png",
+        "brewery":"Rapp's Barren Brewing Company",
+        "longitude":"-92.3599724",
+        "latitude": "36.3326432",
+        "category": "Delicious"
     }
 ]

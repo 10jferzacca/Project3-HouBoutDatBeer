@@ -7,6 +7,8 @@ const PostSchema = new Schema({
     caption:String,
     picture:String,
     brewery:String,
+    longitude: String,
+    latitude: String,
     category:String,
     user:{type: Schema.Types.ObjectId, ref: "User"}
 })
