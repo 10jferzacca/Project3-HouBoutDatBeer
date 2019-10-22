@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from "axios"
 
 class Posts extends Component {
   constructor(props) {
@@ -9,6 +9,7 @@ class Posts extends Component {
     };
   }
   componentDidMount() {
+      console.log('mounted')
     fetch('http://localhost:3000/posts')
       .then(response => {
         return response.json();
@@ -19,18 +20,27 @@ class Posts extends Component {
       .catch(error => console.log(error));
   }
 
+ 
   handleDelete = (post) => { 
+      console.log('in handle delete')
       fetch(`http://localhost:3000/posts/${post}`, {
           headers: {
               "Content-Type": "application/json"
           },
           method: 'DELETE'
-      }).then(res=> {
+      })
+      .then(res=> {
           res.json()
-      }).then(json => {
-          this.setState({posts: this.state.posts.filter(item => {
-              return item._id !== post})})})
-    }
+      })
+      .then(json => {
+          const items = this.state.posts.filter(item => item._id !== post)
+          this.setState({
+              posts: items
+          })
+              
+          })
+        }
+
   
   render() {
     return this.state.posts.map((post, index) => {
@@ -41,6 +51,7 @@ class Posts extends Component {
           <img src={post.picture} />
           <p>{post.caption}</p>
           <p>Brewery: {post.brewery}</p>
+          <p>Category: {post.category}</p>
           <button onClick={() => this.handleDelete(post._id)}>Delete</button>
           </div>
         </div>

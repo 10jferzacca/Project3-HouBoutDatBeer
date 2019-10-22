@@ -4,10 +4,11 @@ const Post = require("../db/models/Post")
 
 
 router.delete("/:id", (req, res) => {
-    Post.remove({_id: req.params.id}).then(posts => {
-        res.json(posts)
+    Post.findOneAndDelete({_id: req.params.id}).then(() => {
+        res.redirect('/posts')
     })
-})
+    })
+   
 
 router.post("/", (req,res) => {
     Post.create(req.body).then(post => {
