@@ -29,14 +29,14 @@ class User extends Component {
                 this.state.users.map(user => {
                     return( 
                         <div className="userProfile">
-                            <nav>
+                            <div>
                             <Link to={"/show/posts/"+user._id}>
                             <h2>Name:{user.name}</h2>
                             </Link>
 
                             <p>username: {user.username}</p>
                             <p>Email: {user.email}</p>
-                            </nav>
+                            </div>
                             </div>
                           
                     )
