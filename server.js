@@ -1,6 +1,7 @@
 const express = require("express")
 const connection = require("./backend/db/connection")
 const app = express()
+const path = require('path')
 const cors = require('cors')
 const parser = require("body-parser")
 const methodOverride = require('method-override')
