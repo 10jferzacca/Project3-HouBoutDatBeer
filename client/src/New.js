@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Redirect } from 'react-router-dom'
 import axios from "axios"
 import Random from "./Random"
-import { Redirect } from "react-router-dom"
+
 class New extends Component {
     constructor(props) {
         super(props);
