@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Redirect } from 'react-router-dom'
 import axios from "axios"
 import Random from "./Random"
 import { Redirect } from "react-router-dom"
@@ -10,7 +11,8 @@ class New extends Component {
             caption:"",
             picture:"",
             brewery:"",
-            category:""
+            category:"",
+            toDashboard: false
          }
     }
     handleInputChange = event => {
@@ -20,6 +22,9 @@ class New extends Component {
     }
 
     handleSubmit = event => {
+       if (this.state.category === "") {
+           alert("not correct")
+       } else {
         event.preventDefault();
         const { title, caption, picture, brewery, category} = this.state;
         const post = {
@@ -28,12 +33,22 @@ class New extends Component {
         axios
         .post('http://localhost:3000/posts/', post)
         .then(() => console.log('post created', post))
+        .then(() => this.setState(() => ({
+            toDashboard: true
+          })))
         .catch(err => {
             console.error(err)
         })
       
     }
+
+    }
+
+
     render() { 
+        if (this.state.toDashboard === true) {
+            return <Redirect to='/show/posts' />
+          }
 
         return ( 
             <div>
@@ -74,12 +89,14 @@ class New extends Component {
                             onChange={this.handleInputChange}/>
                         </div>
                         <div>
-                        <input 
-                            type="text"
-                            className="form"
-                            name="category"
-                            placeholder="Category"
-                            onChange={this.handleInputChange}/>
+                            <select 
+                                name = "category" onChange={this.handleInputChange}>
+                        <option value="Select">Select</option>
+                        <option value="Lager">Lager</option>
+                        <option value="Port">Port</option>
+                        <option value="IPA">IPA</option>
+                        <option value="Belgium">Belgium</option>
+                             </select> 
                         </div>
                         <br />
                         <div>

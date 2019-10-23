@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 
+
 class Showbeer extends Component {
     constructor(props) {
         super(props)
@@ -31,6 +32,7 @@ componentDidMount() {
            <img src={beer.image_url}/>
            <p>Beer tagline: {beer.tagline}</p>
            <p>Description: {beer.description}</p>
+           <p>Type: {beer.catagory}</p>
        </div>
                 )
             }

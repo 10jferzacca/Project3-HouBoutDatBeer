@@ -12,7 +12,7 @@ router.delete("/:id", (req, res) => {
 
 router.post("/", (req,res) => {
     Post.create(req.body).then(post => {
-        res.status(200).send({success: true, post:post})
+        res.status(200).send({success: true, post:post}).redirect("/")
     }).catch(err => {
         console.log("error", err)
     })
