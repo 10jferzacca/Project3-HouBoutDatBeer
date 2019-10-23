@@ -12,6 +12,7 @@
     "throttle-debounce": "^2.1.0"
   },
   "scripts": {
+    "start": "node server.js",
     "start": "PORT=9000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
