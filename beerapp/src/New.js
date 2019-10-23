@@ -17,6 +17,7 @@ class New extends Component {
             [event.target.name]: event.target.value
         })
     }
+
     handleSubmit = event => {
         event.preventDefault();
         const { title, caption, picture, brewery, category} = this.state;
@@ -32,6 +33,7 @@ class New extends Component {
       
     }
     render() { 
+
         return ( 
             <div>
                 <br />
@@ -80,7 +82,7 @@ class New extends Component {
                         </div>
                         <br />
                         <div>
-                            <button type="submit" >Create</button>
+                            <button type="submit" onClick={this.handleSubmit}>Create</button>
                         </div>
                     </form>
                 </div>

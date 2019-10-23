@@ -51,7 +51,7 @@ class Posts extends Component {
           <p>Brewery: {post.brewery}</p>
           <p>Category: {post.category}</p>
           <button onClick={() => this.handleDelete(post._id)}>Delete</button>
-          <Link to={"/showpost/" + post._id}><button>Edit</button></Link>
+          <Link to={"/edit/" + post._id}><button>Edit</button></Link>
 
           </div>
         </div>

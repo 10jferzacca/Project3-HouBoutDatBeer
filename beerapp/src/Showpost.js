@@ -1,52 +1,60 @@
 import React, { Component } from "react"
-
+import { Redirect } from "react-router-dom"
 import axios from "axios"
 class Showpost extends Component {
     constructor(props) {
         
         super(props)
+        
         this.state = {
             title: '',
             caption:"",
             picture:"",
             brewery:"",
             category:""
+           
         }
     
+    }
+    componentDidMount() {
+        fetch('http://localhost:3000/posts/edit/' + this.props.match.params.id, {
+            method: 'PUT',
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }).then(response => {
+            return response.json()
+        })
+        .then(json => {
+            console.log(json)
+           this.setState({
+            post: json
+           }) 
+           
+        })
     }
     handleInputChange = event => {
+        
         this.setState({
-            [event.target.name]: event.target.value
-        })
+            [event.target.name]: event.target.value 
+        });
+        
     }
+   
     handleSubmit = event => {
+        console.log('in handle submit')
         event.preventDefault();
-        const { title, caption, picture, brewery, category} = this.state;
-        const post = {
-            title, caption, picture, brewery, category
-        }
-        axios
-        .put('http://localhost:3000/edit/', this.props.match.params.id)
-        .then(() => console.log('post updated', post))
-        .catch(err => {
-            console.error(err)
-        })
-      
+        const {title, caption, picture, brewery, category} =this.state
+        axios.put('http://localhost:3000/posts/edit/' + this.props.match.params.id, {title, caption, picture, brewery, category})
+        .then(result => {
+            console.log('result' + result)
+          
+        }).catch(err => console.log(err))
     }
-componentDidMount() {
-    fetch('http://localhost:3000/edit/' + this.props.match.params.id, {
-        method: 'PUT'
-    })
-    .then(response => {
-        return response.json()
-    }).then(res => {
-        this.setState({
-            beer: res})
-    
-}
-    )
-}
+
     render()  {
+       console.log(this.props.match.params)
+        console.log(this.state)
         return (
             <div>
                 <br />
@@ -57,6 +65,7 @@ componentDidMount() {
                             type="text"
                             className="form"
                             name="title"
+                            value={this.state.title}
                             placeholder="Title"
                             onChange={this.handleInputChange}/>
                         </div>
@@ -74,7 +83,7 @@ componentDidMount() {
                             type="text"
                             className="form"
                             name="picture"
-                            placeholder="Picture"
+                            placeholder={"Picture"}
                             onChange={this.handleInputChange}/>
                         </div>
                         <div>
@@ -93,9 +102,17 @@ componentDidMount() {
                             placeholder="Category"
                             onChange={this.handleInputChange}/>
                         </div>
+                        <div>
+                        <input 
+                            type="text"
+                            className="form"
+                            name="user"
+                            placeholder="userName"
+                            onChange={this.handleInputChange}/>
+                        </div>
                         <br />
                         <div>
-                            <button type="submit">Update</button>
+                            <button type="submit" >Update</button>
                         </div>
                     </form>
                 </div>

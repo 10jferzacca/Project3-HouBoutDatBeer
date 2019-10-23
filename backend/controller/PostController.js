@@ -19,29 +19,22 @@ router.post("/", (req,res) => {
 })
 
 router.put('/edit/:id', (req, res) => {
+   console.log('router put')
+   console.log(req.body)
     Post.
     findOneAndUpdate({_id: req.params.id}, req.body)
     .then(post => {
-        post.json()
+       res.json(post)
     })
+  
     .catch(err => {
         console.log(err)
     })
 })
 
-// router.get("/", (req,res) => {
-//     Post.find({}).then(posts => {
-//         res.status(200).send({success: true, posts:posts})
-//     }).catch(err => {
-//         console.log("error", err)
-//     })
-// })
 
-router.get('/edit/:id', (req, res) => {
-    Post.findOne({_id: req.params.id}).then(post => {
-        res.json(post)
-    })
-})
+
+
 router.get("/", (req, res) => {
     Post.find({}).then(posts => res.json(posts));
 })

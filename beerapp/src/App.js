@@ -50,7 +50,8 @@ class App extends Component {
          <Route path="/show/users" component={User}/>
          <Route exact path="/show/posts" component={Posts}/>
          <Route exact path="/newpost" component={New}/>
-         <Route path="/showpost/:id" render={routerProps => <Showpost {...routerProps}/>}/>
+         {/* <Route path="/edit/:id" render={routerProps => <Showpost {...routerProps} post={this.state.beers}/>}/> */}
+         <Route exact path="/edit/:id" component={Showpost}/>
           {/* <Route path="/show"
           component={ShowBeer}/> */}
         </Switch>
