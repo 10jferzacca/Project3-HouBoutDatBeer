@@ -7,7 +7,7 @@ const methodOverride = require('method-override')
 const UserController = require('./backend/controller/UserController')
 const PostController = require("./backend/controller/PostController")
 
-// app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'client/build')))
 app.use(methodOverride('_method'))
 app.use(cors())
 app.use(parser.json())
