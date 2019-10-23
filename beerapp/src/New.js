@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios"
+import Random from "./Random"
 import { Redirect } from "react-router-dom"
 class New extends Component {
     constructor(props) {
@@ -85,6 +86,7 @@ class New extends Component {
                             <button type="submit" onClick={this.handleSubmit}>Create</button>
                         </div>
                     </form>
+                    <Random />
                 </div>
             </div>
          );

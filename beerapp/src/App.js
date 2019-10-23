@@ -8,6 +8,7 @@ import User from "./User"
 import Showbeer from "./Showbeer"
 import Posts from "./Posts"
 import New from "./New"
+import Random from "./Random"
 import Showpost from "./Showpost"
 class App extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class App extends Component {
           component={ShowBeer}/> */}
         </Switch>
         </main>
+     
         </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
 import axios from "axios"
+import Random from "./Random"
 class Showpost extends Component {
     constructor(props) {
         
@@ -115,6 +116,9 @@ class Showpost extends Component {
                             <button type="submit" >Update</button>
                         </div>
                     </form>
+                    <div className="search">
+                        <Random />
+                    </div>
                 </div>
         </div>
  
