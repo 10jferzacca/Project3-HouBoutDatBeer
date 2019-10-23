@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "cd beerapp && npm install && npm run build",
+    "heroku-postbuild": "cd beerapp/src/index.js && npm install && npm run build",
    
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -25,7 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://localhost:9000",
+  "proxy": "http://localhost:3000",
   "browserslist": {
     "production": [
       ">0.2%",
