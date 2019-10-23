@@ -4,15 +4,21 @@ import {Link, Route, Switch} from "react-router-dom"
 import './App.css';
 import Home from "./Home"
 import Beers from "./Beers"
+import User from "./User"
+import Showbeer from "./Showbeer"
+import Posts from "./Posts"
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       beers: {}
+ 
     }
   }
+  
   render () {
     return (
+      <div>
       <div>
         <nav>
         <Link to="/">
@@ -21,17 +27,28 @@ class App extends Component {
         <Link to="/beers">
           <h2>View Beers</h2>
         </Link>
+        <Link to="/show/users">
+          <h2>Show Users</h2>
+        </Link>
+        <Link to="/show/posts">
+          <h2>Show Posts</h2>
+        </Link>
+        
         </nav>
+        </div>
         <main>
           <Switch>
           <Route exact path="/"
           component={Home}/>
           <Route path="/beers" component={Beers}/>
+          <Route path="/showBeer/:name" render={routerProps => <Showbeer {...routerProps} beers={this.state.beers}/>}/>
+         <Route path="/show/users" component={User}/>
+         <Route exact path="/show/posts" component={Posts}/>
           {/* <Route path="/show"
           component={ShowBeer}/> */}
-          </Switch>
+        </Switch>
         </main>
-      </div>
+        </div>
     )
   }
     

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import "./App.css"
+import { Link } from "react-router-dom"
 class Beers extends Component {
     constructor(props) {
         super(props);
@@ -25,19 +26,29 @@ class Beers extends Component {
     render() { 
         return ( 
             <div>
+            <div>
                 <h2>Beers</h2>
+            </div>
+
+            <div className="wrapper">
+               
                 {this.state.beers.map(beer => {
                     return(
-                        <div>
-                        <h4>{beer.name}: {beer.tagline}</h4>
+                        <div className="box">
+                        <h4>{beer.name} ({beer.abv}%)</h4>
+                        <p>{beer.tagline}</p>
                         <img src={beer.image_url} />
-                        <p>{beer.description}</p>
-                        <p>Food Pairing: {beer.food_pairing[0]}</p>
+                        {/* add description below {beer.description} */}
+                              
+                        {/* <p>{beer.description}</p> */}
+                        <p>Recommended Food Pairing: {beer.food_pairing[0]}</p>
+                        <Link to={"/showbeer/" + beer.name}><button>Read More</button> </Link> 
                         </div>
                     )
                 })}
             </div>
-         );
+            </div>
+         )
     }
 }
  
