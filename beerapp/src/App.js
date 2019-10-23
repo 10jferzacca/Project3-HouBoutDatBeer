@@ -6,6 +6,7 @@ import Home from "./Home"
 import Beers from "./Beers"
 import User from "./User"
 import Showbeer from "./Showbeer"
+import ShowPost from "./showPost"
 import Posts from "./Posts"
 import New from "./New"
 class App extends Component {
@@ -48,6 +49,7 @@ class App extends Component {
           component={Home}/>
           <Route path="/beers" component={Beers}/>
           <Route path="/showbeer/:name" render={routerProps => <Showbeer {...routerProps} beers={this.state.beers}/>}/>
+          <Route path="/show/posts/:title" component = { ShowPost }/>
          <Route path="/show/users" component={User}/>
          <Route exact path="/show/posts" component={Posts}/>
          <Route exact path="/newpost" component={New}/>

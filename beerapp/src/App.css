@@ -88,10 +88,13 @@ nav {
   height: 50px;
 }
 
-nav a{
+nav a {
   color: #F0AC11;
   font-size: 20px;
   font-family: 'Rancho', cursive;
   margin: 0;
 
+}
+nav a div {
+  margin: 0
 }
