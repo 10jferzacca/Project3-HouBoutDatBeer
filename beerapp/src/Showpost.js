@@ -10,7 +10,8 @@ class Showpost extends Component {
             caption:"",
             picture:"",
             brewery:"",
-            category:""
+            category:"",
+            user:"5dacb9faa43f4f59f38a3105"
         }
     
     }
@@ -21,12 +22,12 @@ class Showpost extends Component {
     }
     handleSubmit = event => {
         event.preventDefault();
-        const { title, caption, picture, brewery, category} = this.state;
+        const { title, caption, picture, brewery, category, user} = this.state;
         const post = {
-            title, caption, picture, brewery, category
+            title, caption, picture, brewery, category, user
         }
         axios
-        .put('http://localhost:3000/edit/', this.props.match.params.id)
+        .put('http://localhost:3000/posts/edit/'+ this.props.match.params.id)
         .then(() => console.log('post updated', post))
         .catch(err => {
             console.error(err)
@@ -47,6 +48,7 @@ componentDidMount() {
     )
 }
     render()  {
+        console.log("props",this.props)
         return (
             <div>
                 <br />
@@ -91,6 +93,14 @@ componentDidMount() {
                             className="form"
                             name="category"
                             placeholder="Category"
+                            onChange={this.handleInputChange}/>
+                        </div>
+                        <div>
+                        <input 
+                            type="text"
+                            className="form"
+                            name="user"
+                            placeholder="userName"
                             onChange={this.handleInputChange}/>
                         </div>
                         <br />

@@ -43,7 +43,10 @@ router.get('/edit/:id', (req, res) => {
     })
 })
 router.get("/", (req, res) => {
-    Post.find({}).then(posts => res.json(posts));
+    Post.find({}).populate("user").then(posts => res.json(posts));
+})
+router.get("/:uid", (req, res) => {
+    Post.find({user: req.params.uid}).populate("user").then(posts => res.json(posts));
 })
 
 module.exports = router

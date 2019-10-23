@@ -1,4 +1,8 @@
 import React, { Component } from "react"
+import {Link, Route, Switch} from "react-router-dom"
+import Posts from "./Posts"
+import New from "./New"
+import Showpost from "./Showpost"
 
 class User extends Component {
     constructor(props) {
@@ -25,16 +29,23 @@ class User extends Component {
                 this.state.users.map(user => {
                     return( 
                         <div className="userProfile">
+                            <nav>
+                            <Link to={"/show/posts/"+user._id}>
                             <h2>Name:{user.name}</h2>
+                            </Link>
+
                             <p>username: {user.username}</p>
                             <p>Email: {user.email}</p>
+                            </nav>
                             </div>
+                          
                     )
+                    
                 })
-           
-              
        )
+       
    }
+   
 }
 
 export default User;

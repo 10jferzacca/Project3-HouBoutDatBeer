@@ -9,7 +9,8 @@ class New extends Component {
             caption:"",
             picture:"",
             brewery:"",
-            category:""
+            category:"",
+            user:"5dacb9faa43f4f59f38a3105"
          }
     }
     handleInputChange = event => {
@@ -19,9 +20,9 @@ class New extends Component {
     }
     handleSubmit = event => {
         event.preventDefault();
-        const { title, caption, picture, brewery, category} = this.state;
+        const { title, caption, picture, brewery, category, user} = this.state;
         const post = {
-            title, caption, picture, brewery, category
+            title, caption, picture, brewery, category, user
         }
         axios
         .post('http://localhost:3000/posts/', post)
@@ -76,6 +77,14 @@ class New extends Component {
                             className="form"
                             name="category"
                             placeholder="Category"
+                            onChange={this.handleInputChange}/>
+                        </div>
+                        <div>
+                        <input 
+                            type="text"
+                            className="form"
+                            name="user"
+                            placeholder="userName"
                             onChange={this.handleInputChange}/>
                         </div>
                         <br />

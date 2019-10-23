@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
 import axios from "axios"
 import { Link } from "react-router-dom"
+
+
 class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: []
     };
+    this.someFunk()
+  }
+
+  someFunk(){
+    let url = window.location.pathname
+    return url.split("/")[3]
   }
   componentDidMount() {
+
       console.log('mounted')
-    fetch('http://localhost:3000/posts')
+      let uid =this.someFunk()
+      let endpoint = "http://localhost:3000/posts/"
+      if(uid){
+          endpoint =  endpoint + uid
+      }
+    fetch(endpoint)
       .then(response => {
         return response.json();
       })
       .then(res => {
+        console.log("this is res",res)
         this.setState({ posts: res });
       })
       .catch(error => console.log(error));
@@ -41,6 +56,7 @@ class Posts extends Component {
         }
   
   render() {
+    
     return this.state.posts.map((post, index) => {
       return (
         <div className='post'>
@@ -50,6 +66,7 @@ class Posts extends Component {
           <p>{post.caption}</p>
           <p>Brewery: {post.brewery}</p>
           <p>Category: {post.category}</p>
+          <p>User: {post.user.username}</p>
           <button onClick={() => this.handleDelete(post._id)}>Delete</button>
           <Link to={"/showpost/" + post._id}><button>Edit</button></Link>
 
