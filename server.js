@@ -17,9 +17,9 @@ app.use("/posts", PostController)
 app.get("/",(req,res)=> {
     res.status(200).send("connected")
 })
-
+const port = process.env.PORT || 3000
 app.set("port", process.env.PORT || 3000)
-app.listen(app.get("port"), () => {
+app.listen(port, () => {
     console.log(`✅ PORT: ${app.get("port")} 🌟`);
   });
 
