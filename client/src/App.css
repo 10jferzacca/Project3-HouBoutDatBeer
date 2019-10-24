@@ -84,7 +84,7 @@ a {
 } 
 
 .inner:hover{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 blue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0,0,0,0.5);
 }
 
 .brewery {
@@ -93,19 +93,7 @@ a {
   display: inline-block;
 }
 
-/* a.category {
-  font-size: 12px;
-  float: right;
-  color: #F0AC11;
-  border-radius: 50%;
-  text-decoration-style: none;
-  text-decoration-color: none;
-  padding: 0 auto;
-  border: 1px solid #006790;
-  display: inline;
-  text-decoration: none;
-  margin: 0 auto;
-} */
+
 
 .caption {
   font-style: italic;
