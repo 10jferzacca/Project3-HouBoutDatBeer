@@ -186,3 +186,26 @@ button:hover {
   color: white;
 }
 
+@media screen and (max-width: 600px) {
+  nav {
+    background-color: #006790;
+    color: #F0AC11;
+    height: 50px;
+  }
+  
+  nav a {
+    color: #F0AC11;
+    font-size: 8px;
+    text-align: center;
+
+    font-family: 'Rancho', cursive;
+    margin: 0 auto;
+    padding: auto;
+  }
+  nav a div {
+    margin: 0
+  }
+  nav {
+    margin-bottom: 10px
+  }
+}
