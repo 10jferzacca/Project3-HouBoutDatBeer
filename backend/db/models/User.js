@@ -2,10 +2,22 @@ const mongoose = require("../connection")
 const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
-    name:String,
-    email:String,
-    username:String
-
+    name: {
+        type: String,
+        required: true
+    },
+    email:{
+        type: String,
+        required: true
+    },
+    username:{
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
 })
 
 const User = mongoose.model("User",UserSchema)
