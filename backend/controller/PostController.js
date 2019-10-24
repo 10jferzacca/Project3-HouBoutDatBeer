@@ -4,8 +4,16 @@ const Post = require("../db/models/Post")
 
 
 router.delete("/:id", (req, res) => {
+    console.log("inside of delete")
     Post.findOneAndDelete({_id: req.params.id}).then(() => {
-        res.redirect('/posts')
+        Post.find({}).then((posts) => {
+            console.log("returning posts", posts)
+            res.status(200).send({
+                success:true,
+                posts:posts
+            })
+        })
+        
     })
     })
    

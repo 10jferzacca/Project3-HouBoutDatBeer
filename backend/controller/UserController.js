@@ -11,6 +11,19 @@ router.post("/", (req,res) => {
         console.log("error", err)
     })
 })
+// post for register
+router.post("/register", (req,res) => {
+    console.log("inside register endpoint")
+    req.body.name=req.body.username
+    User.create(req.body).then(user => {
+        res.status(200).send({
+            success: true,
+            user: user
+        })
+    }).catch(err => {
+        console.log("error", err)
+    })
+})
 
 // router.get("/:id", (req,res) => {
 //     User.findOne({_id:req.params.id}).then(user => {
@@ -34,7 +47,10 @@ router.put("/:id", (req,res) => {
 
 router.delete("/:id", (req,res) => {
     User.findOneAndDelete({_id:req.params.id}).then( () => {
-        res.status(200).send({success: true, deleted:true})
+        User.find({}).then((users)=>{
+            res.status(200).send({success: true, deleted:true, users:users})
+        })
+        
     }).catch(err => {
         console.log("error", err)
     })

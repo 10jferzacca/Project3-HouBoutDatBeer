@@ -6,6 +6,7 @@ const parser = require("body-parser")
 
 const UserController = require('./backend/controller/UserController')
 const PostController = require("./backend/controller/PostController")
+const LoginController = require("./backend/controller/LoginController")
 
 // app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors())
@@ -13,6 +14,7 @@ app.use(parser.json())
 app.use(parser.urlencoded({extended:true}))
 app.use("/users", UserController)
 app.use("/posts", PostController)
+app.use("/login", LoginController)
 app.get("/",(req,res)=> {
     res.status(200).send("connected")
 });

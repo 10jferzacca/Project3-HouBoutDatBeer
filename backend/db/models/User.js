@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 const UserSchema = new Schema({
     name:String,
     email:String,
-    username:String
+    username:String,
+    password:String
 
 })
 // UserSchema.statics.findByCredentials = function(email, password, callback){
