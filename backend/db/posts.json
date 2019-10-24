@@ -7,7 +7,8 @@
         "longitude": "0",
         "latitude": "0",
         "category":"Lager"
-    },
+      
+},
     {
         "title":"Buzz",
         "caption":"A light, crisp, and bitter IPA--only brewed once!",
@@ -16,6 +17,7 @@
         "longitude":"-86.774322",
         "latitude": "33.524521",
         "category": "IPA"
+        
     },
     {
         "title":"Avery Brown Dredge",
@@ -25,6 +27,7 @@
         "longitude":"-92.3599724",
         "latitude": "36.3326432",
         "category": "Port"
+        
     },
     {
         "title":"Arcade Nation",
@@ -34,6 +37,7 @@
         "longitude":"-84.4239715",
         "latitude": "39.1563725",
         "category": "IPA"
+        
     },
     {
         "title":"Vice Bier",
@@ -43,6 +47,7 @@
         "longitude":"-86.79140006",
         "latitude": "33.512849",
         "category": "Lager"
+      
     },
     {
         "title":"Storm",
@@ -52,6 +57,8 @@
         "longitude":"-92.3599724",
         "latitude": "36.3326432",
         "category": "Port"
+
+         
     },
     {
         "title":"Bad Pixie",
@@ -61,6 +68,8 @@
         "longitude":"-111.8423459",
         "latitude": "33.3032436",
         "category": "IPA"
+
+        
     },
     {
         "title":"Bad Pixie",
@@ -70,5 +79,7 @@
         "longitude":"-92.260019",
         "latitude": "34.742845",
         "category": "Port"
+
+        
     }
 ]

@@ -6,13 +6,17 @@ import Random from './Random';
 class New extends Component {
   constructor(props) {
     super(props);
+    this.user = JSON.parse(window.localStorage.getItem("user"))
+    
     this.state = {
       title: '',
       caption: '',
       picture: '',
       brewery: '',
       category: '',
-      toDashboard: false
+      user: this.user,
+      redirect: false
+      
     };
   }
   handleInputChange = event => {
@@ -22,35 +26,35 @@ class New extends Component {
   };
 
   handleSubmit = event => {
-    if (this.state.category === '') {
-      alert('not correct');
-    } else {
-      event.preventDefault();
-      const { title, caption, picture, brewery, category } = this.state;
-      const post = {
-        title,
-        caption,
-        picture,
-        brewery,
-        category
-      };
-      axios
-        .post('http://localhost:3000/posts/', post)
-        .then(() => console.log('post created', post))
-        .then(() =>
-          this.setState(() => ({
-            toDashboard: true
-          }))
-        )
-        .catch(err => {
-          console.error(err);
-        });
+    event.preventDefault();
+    const { title, caption, picture, brewery, category, user} = this.state;
+    const post = {
+        title, caption, picture, brewery, category, user 
     }
-  };
+
+   
+    axios
+    .post('http://localhost:3000/posts/', post)
+    .then((post) => console.log('post created', post))
+    .then(() => {
+        this.setState(() => ({
+            redirect: true
+        }))
+    })
+    .catch(err => {
+        console.error(err)
+    })
+   
+  
+}
 
   render() {
-    if (this.state.toDashboard === true) {
-      return <Redirect to='/show/posts' />;
+      
+    if (!this.user) {
+      return <Redirect to='/login' />;
+    }
+    if (this.state.redirect === true) {
+        return <Redirect to="/"/>
     }
 
     return (

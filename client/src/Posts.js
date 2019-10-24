@@ -6,15 +6,28 @@ class Posts extends Component {
     super(props);
     this.state = {
       posts: []
-    };
+    }
+    this.someFunk.bind(this)
+  }
+
+  someFunk(){
+    let url = window.location.pathname
+    return url.split("/")[3]
   }
   componentDidMount() {
-    console.log('mounted');
-    fetch('http://localhost:3000/posts')
+
+      console.log('mounted')
+      let uid =this.someFunk()
+      let endpoint = "http://localhost:3000/posts/"
+      if(uid){
+          endpoint =  endpoint + uid
+      }
+    fetch(endpoint)
       .then(response => {
         return response.json();
       })
       .then(res => {
+        console.log("this is res",res)
         this.setState({ posts: res });
       })
       .catch(error => console.log(error));
@@ -60,6 +73,7 @@ class Posts extends Component {
               />{' '}
               {post.brewery}
             </p>
+            {/* <p>User: {post.user}</p> */}
 
             <div className='buttons'>
               <button onClick={() => this.handleDelete(post._id)}>

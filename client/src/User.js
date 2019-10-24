@@ -22,22 +22,41 @@ class User extends Component {
             this.setState({users: res})
         }).catch(error => console.log(error))
     }
-
+    handleDelete = (user) => { 
+        console.log('in handle delete', user)
+        fetch(`http://localhost:3000/users/${user._id}`, {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: 'DELETE'
+        })
+        .then(res=> {
+            res.json().then((d)=>{
+                console.log(d)
+                
+                this.setState({
+                    users: d.users
+                })
+            })
+        })
+        
+    }
    render() {
       
        return(
-                this.state.users.map(user => {
+                this.state.users.map((user, index) => {
                     return( 
-                        <div className="userProfile">
-                            <div>
+                        <div key={index} className="userProfile">
+                           
                             <Link to={"/show/posts/"+user._id}>
                             <h2>Name:{user.name}</h2>
                             </Link>
 
                             <p>username: {user.username}</p>
                             <p>Email: {user.email}</p>
-                            </div>
-                            </div>
+                    
+                            <button onClick={() => this.handleDelete(user)}>Delete</button>   
+                        </div>
                           
                     )
                     

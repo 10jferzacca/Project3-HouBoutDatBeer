@@ -11,7 +11,8 @@ import Posts from './Posts';
 import New from './New';
 import Random from './Random';
 import Showpost from './Showpost';
-
+import Login from "./Login"
+import Register from "./Register"
 import NewUser from './NewUser';
 
 class App extends Component {
@@ -20,8 +21,11 @@ class App extends Component {
     this.state = {
       beers: {}
     };
+    
   }
-
+  clearStorage(){
+    window.localStorage.clear()
+  }
   render() {
     return (
       <div>
@@ -46,6 +50,17 @@ class App extends Component {
             <Link to='/yeetrandom'>
               <h2>Random Beer</h2>
             </Link>
+            <div className="loginstuff">
+            <Link to="/register">
+          <h1>Register</h1>
+        </Link>
+        <Link to="/login">
+          <h2>Login</h2>
+        </Link>
+        <Link onClick={this.clearStorage} to="/login">
+          <h2>Logout</h2>
+        </Link>
+        </div>
           </nav>
 
           {/* <div className="randobeer"><Random /></div> */}
@@ -53,6 +68,10 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path='/' component={Posts} />
+            <Route path="/login"
+          component={Login}/>
+           <Route path="/register"
+          component={Register}/>
             <Route path='/beers' component={Beers} />
             <Route
               path='/showbeer/:name'
@@ -63,7 +82,9 @@ class App extends Component {
             <Route path='/show/users' component={User} />
             <Route exact path='/show/posts' component={Posts} />
             <Route exact path='/newpost' component={New} />
-           
+            <Route exact path="/show/posts/:uid?" component={Posts}/>
+         <Route exact path="/newpost" component={New}/>
+         <Route path="/showpost/:id" render={routerProps => <Showpost {...routerProps}/>}/>
             <Route exact path='/edit/:id' component={Showpost} />
             <Route exact path='/yeetrandom' component={Random} />
             <Route exact path='/newuser' component={NewUser} />

@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import axios from "axios";
 
-class Login extends Component {
+class Register extends Component {
     constructor(props){
         
         super(props)
@@ -11,8 +11,6 @@ class Login extends Component {
         }
     }
     
-    
-
 handleInputChange = event => {
     this.setState({
         [event.target.name]: event.target.value
@@ -23,18 +21,13 @@ handleSubmit = event => {
     console.log("this is state",this.state)
     
     axios
-    .post('http://localhost:3000/login/', this.state)
+    .post('http://localhost:3000/users/register/', this.state)
     .then((res) => {
-        let user = res.data.user;
-        let token = res.data.token;
-        window.localStorage.setItem("user",JSON.stringify(user))
-        window.localStorage.setItem("token",token)
-        console.log("cookie", window.localStorage.getItem("user"))
+        console.log("registration worked", res)
     })
     .catch(err => {
         console.error(err)
     })
-    this.props.history.push('/');
   
 }
 render() { 
@@ -42,13 +35,22 @@ render() {
         <div>
             <br />
             <div>
-                <form onSubmit={this.handleSubmit} >
+                <form onSubmit={this.handleSubmit}>
                     <div>
                         <input 
                         type="text"
                         className="form"
                         name="username"
                         placeholder="username"
+                        onChange={this.handleInputChange}/>
+                    </div>
+                    <br />
+                    <div>
+                        <input 
+                        type="text"
+                        className="form"
+                        name="email"
+                        placeholder="email"
                         onChange={this.handleInputChange}/>
                     </div>
                     <br />
@@ -60,8 +62,11 @@ render() {
                         placeholder="password"
                         onChange={this.handleInputChange}/>
                     </div>
+                    <br />
+                    
                     <div>
-                        <button type="submit" >Login</button>
+
+                        <button type="submit" >Register</button>
                     </div>
                 </form>
             </div>
@@ -70,4 +75,4 @@ render() {
     }
 }
 
-export default Login;
+export default Register;

@@ -3,9 +3,23 @@ const router = express.Router()
 const User = require("../db/models/User")
 
 
+
 router.post("/", (req,res) => {
     User.create(req.body).then(user => {
         res.send("/")
+    }).catch(err => {
+        console.log("error", err)
+    })
+})
+// post for register
+router.post("/register", (req,res) => {
+    console.log("inside register endpoint")
+    req.body.name=req.body.username
+    User.create(req.body).then(user => {
+        res.status(200).send({
+            success: true,
+            user: user
+        })
     }).catch(err => {
         console.log("error", err)
     })
@@ -33,7 +47,10 @@ router.put("/:id", (req,res) => {
 
 router.delete("/:id", (req,res) => {
     User.findOneAndDelete({_id:req.params.id}).then( () => {
-        res.status(200).send({success: true, deleted:true})
+        User.find({}).then((users)=>{
+            res.status(200).send({success: true, deleted:true, users:users})
+        })
+        
     }).catch(err => {
         console.log("error", err)
     })

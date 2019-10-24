@@ -93,7 +93,9 @@ a {
   display: inline-block;
 }
 
-
+.loginstuff {
+  float:right;
+}
 
 .caption {
   font-style: italic;
