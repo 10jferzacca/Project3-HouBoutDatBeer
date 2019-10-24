@@ -7,6 +7,10 @@ const UserSchema = new Schema({
     username:String
 
 })
-
+// UserSchema.statics.findByCredentials = function(email, password, callback){
+//     let User = this; 
+//     User.findOne({email: email, password:password}, callback);
+        
+// }
 const User = mongoose.model("User",UserSchema)
 module.exports = User

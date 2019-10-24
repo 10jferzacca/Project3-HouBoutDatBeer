@@ -22,7 +22,7 @@ router.put('/edit/:id', (req, res) => {
     Post.
     findOneAndUpdate({_id: req.params.id}, req.body)
     .then(post => {
-        post.json()
+        res.json(post)
     })
     .catch(err => {
         console.log(err)
