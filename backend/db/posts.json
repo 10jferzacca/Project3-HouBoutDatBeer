@@ -6,7 +6,7 @@
         "brewery":"Pilsen Brewery",
         "longitude": "0",
         "latitude": "0",
-        "category":"Yum"
+        "category":"Lager"
     },
     {
         "title":"Buzz",
@@ -15,7 +15,7 @@
         "brewery":"Avondale Brewing Co",
         "longitude":"-86.774322",
         "latitude": "33.524521",
-        "category": "Yum"
+        "category": "IPA"
     },
     {
         "title":"Avery Brown Dredge",
@@ -24,6 +24,51 @@
         "brewery":"Rapp's Barren Brewing Company",
         "longitude":"-92.3599724",
         "latitude": "36.3326432",
-        "category": "Delicious"
+        "category": "Port"
+    },
+    {
+        "title":"Arcade Nation",
+        "caption":"Almost like I'm in an arcade!",
+        "picture":"https://images.punkapi.com/v2/12.png",
+        "brewery":"MadTree Brewing",
+        "longitude":"-84.4239715",
+        "latitude": "39.1563725",
+        "category": "IPA"
+    },
+    {
+        "title":"Vice Bier",
+        "caption":"This beer is so clear! Kind of tastes like bubblegum",
+        "picture":"https://images.punkapi.com/v2/keg.png",
+        "brewery":"Trim Tab Brewing",
+        "longitude":"-86.79140006",
+        "latitude": "33.512849",
+        "category": "Lager"
+    },
+    {
+        "title":"Storm",
+        "caption":"STORMY BREWSKY",
+        "picture":"https://images.punkapi.com/v2/23.png",
+        "brewery":"Richter Aleworks",
+        "longitude":"-92.3599724",
+        "latitude": "36.3326432",
+        "category": "Port"
+    },
+    {
+        "title":"Bad Pixie",
+        "caption":"Kind of like this pixie haircut I got once",
+        "picture":"https://images.punkapi.com/v2/25.png",
+        "brewery":"SanTan Brewing Co",
+        "longitude":"-111.8423459",
+        "latitude": "33.3032436",
+        "category": "IPA"
+    },
+    {
+        "title":"Bad Pixie",
+        "caption":"Kind of like this pixie haircut I got once",
+        "picture":"https://images.punkapi.com/v2/25.png",
+        "brewery":"Lost Forty Brewing",
+        "longitude":"-92.260019",
+        "latitude": "34.742845",
+        "category": "Port"
     }
 ]

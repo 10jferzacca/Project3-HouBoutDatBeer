@@ -35,7 +35,12 @@ img {
  background-color: #d6c3bc;
  
 }
-
+.buttons {
+  text-align: center;
+  display: inline-block;
+  padding: 0;
+  margin: 0 auto;
+}
 .box {
   width: 32%;
   margin-bottom: 2%;
@@ -88,16 +93,19 @@ a {
   display: inline-block;
 }
 
-.category {
+/* a.category {
   font-size: 12px;
-  float: left;
-  border: 2px solid white;
+  float: right;
+  color: #F0AC11;
   border-radius: 50%;
-  width:20%;
-  height: auto;
-  display: block;
-  margin: 0;
-}
+  text-decoration-style: none;
+  text-decoration-color: none;
+  padding: 0 auto;
+  border: 1px solid #006790;
+  display: inline;
+  text-decoration: none;
+  margin: 0 auto;
+} */
 
 .caption {
   font-style: italic;
@@ -109,7 +117,6 @@ a {
 
 }
 /* NAV Bar */
-
 
 
 
@@ -155,13 +162,26 @@ input {
   border-radius: 20px;
   margin: 5px;
 }
+.categoryH {
+width: 0;
+word-wrap: break-word;
+  font-size: 32px;
+  font-style: italic;
+  float: left;
+  color: #F0AC11;
+  margin-left: 20px;
+  font-family: 'Rancho', cursive;
+}
 
 .rando {
   font-family: 'Rancho', cursive;
   letter-spacing: 1px;
   font-size: 19px;
 }
-
+.cheers {
+  max-width: 40px;
+  height: auto;
+}
 .randobeer {
   float: left;
   background-color: #006790;
@@ -175,10 +195,23 @@ input {
 button {
   background-color: #F0AC11;
   border-style: none;
-  border-color: pink;
+  text-align: center;
   padding: 6px;
   border-radius: 20px;
   font-family: inherit;
+}
+
+.right {
+  background-color: #006790;
+  color: #F0AC11;
+  font-style: oblique;
+  font-weight: bolder;
+}
+
+.right:hover {
+  background-color: #F0AC11;
+  color: #006790;
+
 }
 
 button:hover {
@@ -190,13 +223,32 @@ button:hover {
   nav {
     background-color: #006790;
     color: #F0AC11;
-    height: 50px;
+    height: auto;
+  }
+  .inner {
+    display: block;
+   margin: 15px auto;
+   margin-left: 15px;
+   margin-right: 15px;
+    border: 3px solid #F0AC11;
+    border-radius: 5px;
+    background-image: linear-gradient(-45deg, white, lightgrey);
+    text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+  } 
+  
+
+  h1.categoryH {
+    text-align: left;
+    word-wrap: normal;
+    float: none;
   }
   
   nav a {
     color: #F0AC11;
-    font-size: 8px;
-    text-align: center;
+    font-size: 10px;
 
     font-family: 'Rancho', cursive;
     margin: 0 auto;

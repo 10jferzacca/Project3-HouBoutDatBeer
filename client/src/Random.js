@@ -22,7 +22,7 @@ class Random extends Component {
     render() { 
         return ( 
             <div>
-            <p>Random brewski: {this.state.random.name}</p>
+            <p>Random Brewski: {this.state.random.name}</p>
             <img src={this.state.random.image_url}/>
             </div>
          )

@@ -100,13 +100,20 @@ class Showpost extends Component {
                             onChange={this.handleInputChange}/>
                         </div>
                         <div>
-                        <input 
-                            type="text"
-                            className="form"
-                            name="category"
-                            placeholder={this.state.post.category}
-                            defaultValue={this.state.post.category}
-                            onChange={this.handleInputChange}/>
+                        <div>
+                            <select name='category' onChange={this.handleInputChange}>
+                                <option value='Select'>Select a Category</option>
+                                <option value='Lager'>Lager</option>
+                                <option value='Porter'>Porter</option>
+                                <option value='Stout'>Stout</option>
+                                <option value='Ale'>Ale</option>
+                                <option value='Belgium'>Belgium</option>
+                                <option value='Pilsner'>Pilsner</option>
+                                <option value='Saisonr'>Saison</option>
+                                <option value='Sour'>Sour</option>
+                                <option value='Wheat'>Wheat</option>
+                            </select>
+                        </div>
                         </div>
                         <div>
                         <input 
