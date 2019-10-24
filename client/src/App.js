@@ -19,9 +19,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      beers: {},
-      showingLogin: true,
-      showingLogout: false
+      beers: {}
+      
     };
     
   }
@@ -30,7 +29,7 @@ class App extends Component {
     window.localStorage.clear()
   }
   render() {
-    const { showingLogin, showingLogout } = this.state
+  
     return (
       <div>
         <div>
@@ -59,11 +58,8 @@ class App extends Component {
           <h1>Register</h1>
         </Link>
        <div>
-        <Link onClick={() => this.setState({showingLogin: !showingLogin, showingLogout: !showingLogout})} to="/login" >
-          {/* <h2>Login</h2> */}
-      
-        { showingLogin ?  <h2>Login</h2> : null }
-        { showingLogout ? <h2>Logout</h2>: null}
+        <Link to="/login" >
+          <h2>Login</h2>
           </Link>
         </div>
          
