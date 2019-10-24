@@ -24,7 +24,8 @@
 
 img {
   width: auto;
-  height: 120px;
+  height: 170px;
+
 }
 
 .wrapper {
@@ -41,6 +42,7 @@ img {
   position: relative;
   /* background-color: grey */
   /* background-image: linear-gradient(to right, #6A6C6E, white); */
+
   color: #003366;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -67,25 +69,51 @@ a {
   margin-left: 30%;
   margin-right: 30%;
   margin-bottom: 10px;
-  border: 1px solid black;
+  border: 3px solid #F0AC11;
+  border-radius: 5px;
   background-image: linear-gradient(-45deg, white, lightgrey);
   text-align: center;
-  font-family: 'Darker Grotesque', sans-serif;
-  padding: 12px;
+  font-family: 'Nanum Gothic', sans-serif;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
 
 .inner:hover{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 blue;
 }
 
+.brewery {
+  width: 25px;
+  height: auto;
+  display: inline-block;
+}
 
+.category {
+  font-size: 12px;
+  float: left;
+  border: 2px solid white;
+  border-radius: 50%;
+  width:20%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+.caption {
+  font-style: italic;
+  font-size: 13px;
+}
+.postbeer {
+  text-align: center;
+  padding: 10px;
+
+}
 /* NAV Bar */
 
 nav {
   background-color: #006790;
   color: #F0AC11;
-  height: 50px;
+  height: 100px;
 }
 
 nav a {
@@ -93,8 +121,64 @@ nav a {
   font-size: 20px;
   font-family: 'Rancho', cursive;
   margin: 0;
-
 }
 nav a div {
   margin: 0
+}
+nav {
+  margin-bottom: 10px
+}
+
+.form {
+  margin-left: 20px;
+}
+
+form {
+  text-align: center;
+  
+}
+
+.beerTitle {
+  background-color: #006790;
+  border-radius: 3px;
+  color: #F0AC11;
+margin: 0 auto;
+padding: 10px;
+text-align: center;
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.rando {
+  font-family: 'Rancho', cursive;
+  letter-spacing: 1px;
+  font-size: 19px;
+}
+
+.randobeer {
+  float: left;
+  background-color: #006790;
+  color: #F0AC11;
+  width: 25%;
+  border-radius: 40%;
+  text-align: center;
+
+}
+
+button {
+  background-color: #F0AC11;
+  border-style: none;
+  border-color: pink;
+  padding: 6px;
+  border-radius: 20px;
+  font-family: inherit;
+}
+
+button:hover {
+  background-color: purple;
+  color: white;
 }

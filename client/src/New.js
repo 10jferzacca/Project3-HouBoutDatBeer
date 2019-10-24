@@ -51,7 +51,7 @@ class New extends Component {
           }
 
         return ( 
-            <div>
+            <div className="form">
                 <br />
                 <div>
                     <form onSubmit={this.handleSubmit}>
@@ -63,7 +63,7 @@ class New extends Component {
                             placeholder="Title"
                             onChange={this.handleInputChange}/>
                         </div>
-                        <br />
+                   
                         <div>
                         <input 
                             type="text"
@@ -91,7 +91,7 @@ class New extends Component {
                         <div>
                             <select 
                                 name = "category" onChange={this.handleInputChange}>
-                        <option value="Select">Select</option>
+                        <option value="Select">Select a Category</option>
                         <option value="Lager">Lager</option>
                         <option value="Port">Port</option>
                         <option value="IPA">IPA</option>
@@ -103,7 +103,7 @@ class New extends Component {
                             <button type="submit" onClick={this.handleSubmit}>Create</button>
                         </div>
                     </form>
-                    <Random />
+                    <p className="rando"><Random /></p>
                 </div>
             </div>
          );

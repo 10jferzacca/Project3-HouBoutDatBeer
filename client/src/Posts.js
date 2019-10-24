@@ -45,14 +45,19 @@ class Posts extends Component {
       return (
         <div className='post'>
             <div className="inner" key={index}>
-          <h2 className="beerTitle">{post.title}</h2>
-          <img src={post.picture} />
-          <p>{post.caption}</p>
-          <p>Brewery: {post.brewery}</p>
-          <p>Category: {post.category}</p>
+              <div className="top">
+          <h2 className="beerTitle">{post.title}</h2> 
+          <p className="category">{post.category}</p>
+          </div>
+          <br />
+         <p className="postbeer"><img src={post.picture}/></p>
+          <p className="caption">{post.caption}</p>
+          <p><img src="https://cdn4.iconfinder.com/data/icons/brewery-outline/128/homemade_beer_home_brew_craft_beer_brewery_fermentation_pub_4-512.png" className="brewery"/> {post.brewery}</p>
+         
+          <div className="buttons">
           <button onClick={() => this.handleDelete(post._id)}>Delete</button>
-          <Link to={"/edit/" + post._id}><button>Edit</button></Link>
-
+          <Link to={"/edit/" + post._id} ><button>Edit</button></Link>
+          </div>
           </div>
         </div>
       );

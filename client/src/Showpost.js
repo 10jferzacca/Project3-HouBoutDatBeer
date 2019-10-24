@@ -6,9 +6,9 @@ class Showpost extends Component {
     constructor(props) {
         
         super(props)
-        
+       
         this.state = {
-            title: '',
+            title: "",
             caption:"",
             picture:"",
             brewery:"",
@@ -35,17 +35,15 @@ class Showpost extends Component {
         })
     }
     handleInputChange = event => {
-        
         this.setState({
             [event.target.name]: event.target.value 
         });
-        
     }
    
     handleSubmit = event => {
         console.log('in handle submit')
         event.preventDefault();
-        const {title, caption, picture, brewery, category} =this.state
+        const {title, caption, picture, brewery, category} =this.state.post;
         axios.put('http://localhost:3000/posts/edit/' + this.props.match.params.id, {title, caption, picture, brewery, category})
         .then(result => {
             console.log('result' + result)
@@ -54,8 +52,11 @@ class Showpost extends Component {
     }
 
     render()  {
-       console.log(this.props.match.params)
-        console.log(this.state)
+  
+        if (this.state.post === undefined || this.state.post === null) {
+            return null;
+        }
+
         return (
             <div>
                 <br />
@@ -66,8 +67,7 @@ class Showpost extends Component {
                             type="text"
                             className="form"
                             name="title"
-                            value={this.state.title}
-                            placeholder="Title"
+                           placeholder={this.state.post.title}
                             onChange={this.handleInputChange}/>
                         </div>
                         <br />
@@ -76,7 +76,9 @@ class Showpost extends Component {
                             type="text"
                             className="form"
                             name="caption"
-                            placeholder="Caption"
+                            placeholder={this.state.post.caption}
+                            defaultValue={this.state.post.caption}
+
                             onChange={this.handleInputChange}/>
                         </div>
                         <div>
@@ -84,7 +86,8 @@ class Showpost extends Component {
                             type="text"
                             className="form"
                             name="picture"
-                            placeholder={"Picture"}
+                            placeholder={this.state.post.picture}
+                            value={this.state.post.picture}
                             onChange={this.handleInputChange}/>
                         </div>
                         <div>
@@ -92,7 +95,8 @@ class Showpost extends Component {
                             type="text"
                             className="form"
                             name="brewery"
-                            placeholder="Brewery"
+                            placeholder={this.state.post.brewery}
+                            defaultValue={this.state.post.brewery}
                             onChange={this.handleInputChange}/>
                         </div>
                         <div>
@@ -100,7 +104,8 @@ class Showpost extends Component {
                             type="text"
                             className="form"
                             name="category"
-                            placeholder="Category"
+                            placeholder={this.state.post.category}
+                            defaultValue={this.state.post.category}
                             onChange={this.handleInputChange}/>
                         </div>
                         <div>
@@ -108,7 +113,8 @@ class Showpost extends Component {
                             type="text"
                             className="form"
                             name="user"
-                            placeholder="userName"
+                            placeholder={this.state.post.userName}
+                            defaultValue={this.state.post.user}
                             onChange={this.handleInputChange}/>
                         </div>
                         <br />
@@ -116,17 +122,23 @@ class Showpost extends Component {
                             <button type="submit" >Update</button>
                         </div>
                     </form>
+                    
                     <div className="search">
                         <Random />
                     </div>
                 </div>
-        </div>
- 
-        )
-    
                 
-            }
+        </div>
+        
+        )
+        
         }
+      }
+    
+        
+                
+            
+        
       
         
 export default Showpost;

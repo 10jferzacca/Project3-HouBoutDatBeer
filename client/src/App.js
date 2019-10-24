@@ -27,9 +27,9 @@ class App extends Component {
         <Link to="/">
           <h1>Home</h1>
         </Link>
-        <Link to="/beers">
+        {/* <Link to="/beers">
           <h2>View Beers</h2>
-        </Link>
+        </Link> */}
         <Link to="/show/users">
           <h2>Show Users</h2>
         </Link>
@@ -41,13 +41,19 @@ class App extends Component {
         <Link to="/newpost">
           <h2>New Post</h2>
         </Link>
+        <Link to="/yeetrandom">
+          <h2>RANDOM YEET</h2>
+          </Link>
         
         </nav>
+     
+        {/* <div className="randobeer"><Random /></div> */}
+      
         </div>
         <main>
           <Switch>
           <Route exact path="/"
-          component={Home}/>
+          component={Posts}/>
           <Route path="/beers" component={Beers}/>
           <Route path="/showbeer/:name" render={routerProps => <Showbeer {...routerProps} beers={this.state.beers}/>}/>
          <Route path="/show/users" component={User}/>
@@ -55,11 +61,13 @@ class App extends Component {
          <Route exact path="/newpost" component={New}/>
          {/* <Route path="/edit/:id" render={routerProps => <Showpost {...routerProps} post={this.state.beers}/>}/> */}
          <Route exact path="/edit/:id" component={Showpost}/>
+         <Route exact path="/yeetrandom" component={Random}/>
           {/* <Route path="/show"
           component={ShowBeer}/> */}
         </Switch>
         </main>
-     
+          
+          
         </div>
     )
   }
