@@ -229,7 +229,9 @@ button:hover {
     
   } 
   
-
+  input {
+    
+  }
   h1.categoryH {
     text-align: left;
     word-wrap: normal;
