@@ -9,6 +9,9 @@ import Showbeer from "./Showbeer"
 import Posts from "./Posts"
 import New from "./New"
 import Showpost from "./Showpost"
+import Login from "./Login"
+import Register from "./Register"
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -17,7 +20,9 @@ class App extends Component {
  
     }
   }
-  
+  clearStorage(){
+    window.localStorage.clear()
+  }
   render () {
     return (
       <div>
@@ -38,6 +43,15 @@ class App extends Component {
         <Link to="/newpost">
           <h2>New Post</h2>
         </Link>
+        <Link to="/register">
+          <h1>Register</h1>
+        </Link>
+        <Link to="/login">
+          <h2>Login</h2>
+        </Link>
+        <Link onClick={this.clearStorage} to="/login">
+          <h2>Logout</h2>
+        </Link>
         
         </nav>
         </div>
@@ -45,6 +59,10 @@ class App extends Component {
           <Switch>
           <Route exact path="/"
           component={Home}/>
+          <Route path="/login"
+          component={Login}/>
+           <Route path="/register"
+          component={Register}/>
           <Route path="/beers" component={Beers}/>
           <Route path="/showbeer/:name" render={routerProps => <Showbeer {...routerProps} beers={this.state.beers}/>}/>
          <Route path="/show/users" component={User}/>

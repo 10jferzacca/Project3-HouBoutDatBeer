@@ -37,38 +37,41 @@ class Posts extends Component {
 
  
   handleDelete = (post) => { 
-      console.log('in handle delete')
-      fetch(`http://localhost:3000/posts/${post}`, {
+      console.log('in handle delete', post)
+      fetch(`http://localhost:3000/posts/${post._id}`, {
           headers: {
               "Content-Type": "application/json"
           },
           method: 'DELETE'
       })
       .then(res=> {
-          res.json()
-      })
-      .then(json => {
-          const items = this.state.posts.filter(item => item._id !== post)
+        res.json().then((d)=>{
+          console.log("this is d", d)
+          
           this.setState({
-              posts: items
+            posts: d.posts
           })
-          })
-        }
+        })
+          
+      })
+      
+  }
   
   render() {
     
     return this.state.posts.map((post, index) => {
+      console.log(post)
       return (
-        <div className='post'>
-            <div className="inner" key={index}>
-          <h2 className="beerTitle">{post.title}</h2>
-          <img src={post.picture} />
-          <p>{post.caption}</p>
-          <p>Brewery: {post.brewery}</p>
-          <p>Category: {post.category}</p>
-          <p>User: {post.username}</p>
-          <button onClick={() => this.handleDelete(post._id)}>Delete</button>
-          <Link to={"/showpost/" + post._id}><button>Edit</button></Link>
+        <div className='post' key={index}>
+          <div className="inner" >
+            <h2 className="beerTitle">{post.title}</h2>
+            <img src={post.picture} />
+            <p>{post.caption}</p>
+            <p>Brewery: {post.brewery}</p>
+            <p>Category: {post.category}</p>
+            <p>User: {post.user.username}:{post.user._id}</p>
+            <button onClick={() => this.handleDelete(post)}>Delete</button>
+            <Link to={"/showpost/" + post._id}><button>Edit</button></Link>
 
           </div>
         </div>

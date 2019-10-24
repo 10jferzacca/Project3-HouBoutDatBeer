@@ -32,9 +32,9 @@ class Beers extends Component {
 
             <div className="wrapper">
                
-                {this.state.beers.map(beer => {
+                {this.state.beers.map((beer, index) => {
                     return(
-                        <div className="box">
+                        <div className="box" key={index}>
                         <h4>{beer.name} ({beer.abv}%)</h4>
                         <p>{beer.tagline}</p>
                         <img src={beer.image_url} />

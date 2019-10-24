@@ -1,16 +1,21 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { Redirect } from "react-router-dom"
+
 class New extends Component {
     constructor(props) {
         super(props);
+        this.user = JSON.parse(window.localStorage.getItem("user"))
+        console.log("this is user",this.user)
+        
         this.state = { 
             title: '',
             caption:"",
             picture:"",
             brewery:"",
             category:"",
-            user:"5dacb9faa43f4f59f38a3105"
+            user:this.user,
+            redirect: false
          }
     }
     handleInputChange = event => {
@@ -22,17 +27,22 @@ class New extends Component {
         event.preventDefault();
         const { title, caption, picture, brewery, category, user} = this.state;
         const post = {
-            title, caption, picture, brewery, category, user
+            title, caption, picture, brewery, category, user 
         }
+        console.log("creating this posts", post)
+       
         axios
         .post('http://localhost:3000/posts/', post)
-        .then(() => console.log('post created', post))
+        .then((post) => console.log('post created', post))
         .catch(err => {
             console.error(err)
         })
       
     }
     render() { 
+        if(!this.user){
+            return <Redirect to="/login"/> 
+        }
         return ( 
             <div>
                 <br />
@@ -79,14 +89,14 @@ class New extends Component {
                             placeholder="Category"
                             onChange={this.handleInputChange}/>
                         </div>
-                        <div>
+                        {/* <div>
                         <input 
                             type="text"
                             className="form"
                             name="user"
                             placeholder="userName"
                             onChange={this.handleInputChange}/>
-                        </div>
+                        </div> */}
                         <br />
                         <div>
                             <button type="submit" >Create</button>

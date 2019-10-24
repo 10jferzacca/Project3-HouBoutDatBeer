@@ -21,9 +21,9 @@ class Home extends Component {
     return (
       <div>
         <h1>Posts</h1>
-        {this.state.breweries.map(brewery => {
+        {this.state.breweries.map((brewery, index) => {
           return (
-            <h3>
+            <h3 key={index}>
               {brewery.name}, ({brewery.brewery_type})
             </h3>
           );

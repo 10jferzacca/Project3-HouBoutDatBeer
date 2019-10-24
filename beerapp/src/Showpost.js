@@ -10,8 +10,8 @@ class Showpost extends Component {
             caption:"",
             picture:"",
             brewery:"",
-            category:"",
-            user:"5dacb9faa43f4f59f38a3105"
+            category:""
+            
         }
     
     }
@@ -22,30 +22,30 @@ class Showpost extends Component {
     }
     handleSubmit = event => {
         event.preventDefault();
-        const { title, caption, picture, brewery, category, user} = this.state;
+        const { title, caption, picture, brewery, category } = this.state;
         const post = {
-            title, caption, picture, brewery, category, user
+            title, caption, picture, brewery, category 
         }
         axios
-        .put('http://localhost:3000/posts/edit/'+ this.props.match.params.id)
-        .then(() => console.log('post updated', post))
+        .put('http://localhost:3000/posts/edit/'+ this.props.match.params.id,post)
+        .then((post) => console.log('post updated', post))
         .catch(err => {
             console.error(err)
         })
       
     }
 componentDidMount() {
-    fetch('http://localhost:3000/edit/' + this.props.match.params.id, {
-        method: 'PUT'
-    })
-    .then(response => {
-        return response.json()
-    }).then(res => {
-        this.setState({
-            beer: res})
+//     fetch('http://localhost:3000/edit/' + this.props.match.params.id, {
+//         method: 'PUT'
+//     })
+//     .then(response => {
+//         return response.json()
+//     }).then(res => {
+//         this.setState({
+//             beer: res})
     
-}
-    )
+// }
+//     )
 }
     render()  {
         console.log("props",this.props)
@@ -93,14 +93,6 @@ componentDidMount() {
                             className="form"
                             name="category"
                             placeholder="Category"
-                            onChange={this.handleInputChange}/>
-                        </div>
-                        <div>
-                        <input 
-                            type="text"
-                            className="form"
-                            name="user"
-                            placeholder="userName"
                             onChange={this.handleInputChange}/>
                         </div>
                         <br />
