@@ -66,7 +66,7 @@ class Posts extends Component {
           <p>{post.caption}</p>
           <p>Brewery: {post.brewery}</p>
           <p>Category: {post.category}</p>
-          <p>User: {post.user.username}</p>
+          <p>User: {post.username}</p>
           <button onClick={() => this.handleDelete(post._id)}>Delete</button>
           <Link to={"/showpost/" + post._id}><button>Edit</button></Link>
 
