@@ -1,8 +1,8 @@
 ![image](https://user-images.githubusercontent.com/53881297/67589982-0e6f6280-f717-11e9-9117-e57c09033f0d.png)
 
-### Brief Example
-Below is the initial wireframe for this project:
-![image](BXPNW_Wireframe.jpg)
+### Wire Framing
+
+![image](https://user-images.githubusercontent.com/53881297/67590179-8dfd3180-f717-11e9-9cb2-269f1a641ad0.png)
  
 ### Features 
 This app features full CRUD capability:
