@@ -1,11 +1,4 @@
-![image](Artboard – 1.png)
-
-
-
-# BeerPalz 
-### A General Assembly Software Enginieering Immersive Group Project
-
-BeerPalz was built to help friend share beers. The idea comes from two college buddies who sent beer back and forth like a pen pals but with beer. Using beer pals everytime you have an extrodinary beer you can easily share it on BeerPalz so your friends can see what your drinking.
+![image](https://user-images.githubusercontent.com/53881297/67589982-0e6f6280-f717-11e9-9117-e57c09033f0d.png)
 
 ### Brief Example
 Below is the initial wireframe for this project:
