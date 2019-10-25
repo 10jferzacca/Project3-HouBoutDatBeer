@@ -21,8 +21,8 @@ class Random extends Component {
     }
     render() { 
         return ( 
-            <div>
-            <p>Random Brewski: {this.state.random.name}</p>
+            <div className="random">
+            <p className="here">Here's a cold one..</p> <p>{this.state.random.name}</p>
             <img src={this.state.random.image_url}/>
             </div>
          )

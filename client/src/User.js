@@ -42,25 +42,27 @@ class User extends Component {
         
     }
    render() {
-      
        return(
+         
                 this.state.users.map((user, index) => {
                     return( 
                         <div key={index} className="userProfile">
-                           
-                            <Link to={"/show/posts/"+user._id}>
-                            <h2>Name:{user.name}</h2>
-                            </Link>
+                           <div className="user">
+                          <p> <Link to={"/show/posts/"+user._id}>
+                            <h2>{user.name}</h2>
+                            </Link></p> 
 
                             <p>username: {user.username}</p>
                             <p>Email: {user.email}</p>
                     
-                            <button onClick={() => this.handleDelete(user)}>Delete</button>   
+                            <button onClick={() => this.handleDelete(user)}>Delete</button> 
+                            </div>  
                         </div>
                           
                     )
                     
                 })
+             
        )
        
    }

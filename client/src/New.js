@@ -49,7 +49,6 @@ class New extends Component {
 }
 
   render() {
-      
     if (!this.user) {
       return <Redirect to='/login' />;
     }

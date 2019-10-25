@@ -28,7 +28,7 @@ handleSubmit = event => {
     .catch(err => {
         console.error(err)
     })
-  
+    this.props.history.push('/show/users');
 }
 render() { 
     return ( 

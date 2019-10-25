@@ -41,27 +41,27 @@ class App extends Component {
               />
             </Link>
             <Link to='/newpost'>
-              <h2>New Post</h2>
+              <h2>Post</h2>
             </Link>
-            <Link to='/newuser'>
+            {/* <Link to='/newuser'>
               <h2>New Palz</h2>
-            </Link>
+            </Link> */}
             <Link to='/show/users'>
-              <h2>Find Palz</h2>
+              <h2>Palz</h2>
             </Link>
 
             <Link to='/yeetrandom'>
               <h2>Random Beer</h2>
             </Link>
-            <div className="loginstuff">
+          <div className="loginstuff">
             <Link to="/register">
-          <h1>Register</h1>
-        </Link>
-       <div>
+              <h1>Register</h1>
+            </Link>
+      
         <Link to="/login" >
           <h2>Login</h2>
           </Link>
-        </div>
+
          
         <Link onClick={this.clearStorage} to="/login">
           <h2>Logout</h2>
@@ -85,7 +85,7 @@ class App extends Component {
                 <Showbeer {...routerProps} beers={this.state.beers} />
               )}
             />
-            <Route path='/show/users' component={User} />
+            
             <Route exact path='/show/posts' component={Posts} />
             <Route exact path='/newpost' component={New} />
             <Route exact path="/show/posts/:uid?" component={Posts}/>
@@ -95,6 +95,8 @@ class App extends Component {
             <Route exact path='/yeetrandom' component={Random} />
             <Route exact path='/newuser' component={NewUser} />
             <Route exact path="/category/:category" component={Category}/>
+            <div className="userProfile">
+            <Route path='/show/users' component={User} /></div>
           </Switch>
         </main>
       </div>
