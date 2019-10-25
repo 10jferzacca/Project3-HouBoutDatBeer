@@ -3,7 +3,9 @@
 ### Wire Framing
 
 ![image](https://user-images.githubusercontent.com/53881297/67590179-8dfd3180-f717-11e9-9cb2-269f1a641ad0.png)
- 
+![image](https://user-images.githubusercontent.com/53881297/67590293-eaf8e780-f717-11e9-94df-4f5d99e059f8.png)
+![image](https://user-images.githubusercontent.com/53881297/67590294-eaf8e780-f717-11e9-9c20-44ecf89ce8bf.png)
+
 ### Features 
 This app features full CRUD capability:
 Users can view the most recent posts from other users on the Home page
