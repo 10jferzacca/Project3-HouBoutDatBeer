@@ -1,4 +1,5 @@
 import React, { Component} from "react"
+import Location from './location'
 
 
 class Random extends Component {
@@ -22,8 +23,10 @@ class Random extends Component {
     render() { 
         return ( 
             <div className="random">
+                {console.log('hello')}
             <p className="here">Here's a cold one..</p> <p>{this.state.random.name}</p>
             <img src={this.state.random.image_url}/>
+            <Location/>
             </div>
          )
     }
