@@ -1,12 +1,13 @@
 import React, { Component } from "react"
-import { Map, GoogleApiWrapper, Marker} from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, withScriptjs} from 'google-maps-react';
 
 
 export class Location extends Component{
     constructor(props){
         super(props);
         this.state = {
-            breweries: ''
+            breweries: '',
+            beer:''
         }
     }
 
@@ -19,27 +20,39 @@ export class Location extends Component{
             // console.log(breweries);
             this.setState({ breweries: breweries });
           });
+          function showMap(position) {
+            // Show a map centered at (position.coords.latitude, position.coords.longitude).
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude); 
+          }
+          // One-shot position request.
+          navigator.geolocation.getCurrentPosition(showMap);
+
       }
       
 
     
     render(){
         const mapStyles = {
-            width: '100%',  
-            height: '100%',
+            width: '50%',  
+            height: '50%',
           };
+          
+
           if(this.state.breweries.length >= 1){
               return(
                   
                   <div>
-                      {console.log(this.state.breweries)}
                   <Map
                  google={this.props.google}
-                 zoom={8}
+                 zoom={4}
                  style={mapStyles}
-                 initialCenter={{ lat:  this.state.breweries[1].latitude, lng: this.state.breweries[1].longitude}}
+                 initialCenter={{ lat: 39.828175 , lng: -98.5795}}
                  >
                <Marker position={{ lat: this.state.breweries[1].latitude, lng: this.state.breweries[1].longitude}} />
+               <Marker position={{lat:38.4276714, lng:-121.4246785}}/>
+
+
                </Map>
                  </div>
               )
